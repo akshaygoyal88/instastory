@@ -1,0 +1,29 @@
+.img {
+  width: 30%;
+  margin-top: 10px;
+  margin-left: 5px;
+  margin-bottom: 10px;
+}
+
+.gradientBorder {
+  background: conic-gradient(#4907cb, #af1818, #dfe160, #cdaf1a, #4c1cab);
+  background-clip: border-box;
+  box-sizing: border-box;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.imageContainer:hover {
+  transform: scale(1.1);
+}
+
+.imageContainer {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 9999px;
+  overflow: hidden;
+  background-color: #ebebeb;
+}
