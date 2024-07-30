@@ -110,7 +110,15 @@ const StorySlider: React.FC<StorySliderProps> = ({ user }) => {
               </div>
             ) : (
               <div className={`story__slide ${styles.story__slide}`}>
-                <img src={data} alt="Slide 1" />
+                <img
+                  src={data}
+                  alt="Slide 1"
+                  style={{
+                    width: "100vw",
+                    height: "100vh",
+                    objectFit: "cover",
+                  }}
+                />
               </div>
             )
           )}
