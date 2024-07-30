@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import gsap from "gsap";
 import styles from "../styles/StorySlider.module.css";
 import style from "../styles/NavBar.module.css";
+import Image from "next/image";
 
 const progressStyle: React.CSSProperties = {
   height: "3px",
@@ -61,9 +62,9 @@ const StorySlider: React.FC<StorySliderProps> = ({ user }) => {
     if (sliderRef.current) {
       const interval = setInterval(() => {
         if (sliderRef.current) {
-          const slick = sliderRef.current.innerSlider;
-          const currentSlide = slick.state.currentSlide;
-          const slidesCount = slick.props.slidesToShow;
+          const slick: any = sliderRef.current.innerSlider;
+          const currentSlide = slick?.state?.currentSlide;
+          const slidesCount = slick?.props?.slidesToShow;
           const progressPercentage = ((currentSlide + 1) / slidesCount) * 100;
           setProgress(progressPercentage);
         }
@@ -80,11 +81,14 @@ const StorySlider: React.FC<StorySliderProps> = ({ user }) => {
           <div
             className={`relative z-10 h-15 w-15 select-none rounded-full overflow-hidden object-cover p-[2px]  ${style.gradientBorder} ${style.imageContainer}`}
           >
-            <img
+            <Image
               className={`r relative z-10 h-17 w-17 select-none rounded-full bg-[#ebebeb]  p-[2px] dark:bg-[#1c1c1c] w-full h-full object-cover ${style.image}`}
               src={user.image}
-              alt="avatar"
+              onClick={handleDoubleClick}
+              width={100}
+              height={100}
               style={{ zIndex: "99" }}
+              alt={""}
             />
           </div>
         </div>
@@ -94,41 +98,42 @@ const StorySlider: React.FC<StorySliderProps> = ({ user }) => {
         className={`story ${styles.story}`}
         style={{ position: "absolute", top: "0px" }}
       >
-        <Slider
-          {...settings}
-          ref={sliderRef}
-          className={`story__slider ${styles.story__slider}`}
-          onClick={handleDoubleClick}
-          style={{ zIndex: "1" }}
-        >
-          {user?.story?.map((data: string | undefined, index: number) =>
-            data?.includes(".mp4") ? (
-              <div
-                key={index + "ffgfd"}
-                className={`story__slide ${styles.story__slide}`}
-              >
-                <video autoPlay>
-                  <source src={data} type="video/mp4" />
-                </video>
-              </div>
-            ) : (
-              <div
-                key={index + "ffgfd"}
-                className={`story__slide ${styles.story__slide}`}
-              >
-                <img
-                  src={data}
-                  alt="Slide 1"
-                  style={{
-                    width: "100vw",
-                    height: "100vh",
-                    objectFit: "cover",
-                  }}
-                />
-              </div>
-            )
-          )}
-        </Slider>
+        {" "}
+        <div onClick={handleDoubleClick}>
+          <Slider
+            {...settings}
+            ref={sliderRef}
+            className={`story__slider ${styles.story__slider}`}
+          >
+            {user?.story?.map((data: string | undefined, index: number) =>
+              data?.includes(".mp4") ? (
+                <div
+                  key={index + "ffgfd"}
+                  className={`story__slide ${styles.story__slide}`}
+                >
+                  <video autoPlay>
+                    <source src={data} type="video/mp4" />
+                  </video>
+                </div>
+              ) : (
+                <div
+                  key={index + "ffgfd"}
+                  className={`story__slide ${styles.story__slide}`}
+                >
+                  <img
+                    src={data}
+                    alt="Slide 1"
+                    style={{
+                      width: "100vw",
+                      height: "100vh",
+                      objectFit: "cover",
+                    }}
+                  />
+                </div>
+              )
+            )}
+          </Slider>
+        </div>
       </div>
     </div>
   );
