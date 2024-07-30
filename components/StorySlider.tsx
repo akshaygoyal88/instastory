@@ -101,15 +101,21 @@ const StorySlider: React.FC<StorySliderProps> = ({ user }) => {
           onClick={handleDoubleClick}
           style={{ zIndex: "1" }}
         >
-          {user?.story?.map((data: string | undefined) =>
+          {user?.story?.map((data: string | undefined, index: number) =>
             data?.includes(".mp4") ? (
-              <div className={`story__slide ${styles.story__slide}`}>
+              <div
+                key={index + "ffgfd"}
+                className={`story__slide ${styles.story__slide}`}
+              >
                 <video autoPlay>
                   <source src={data} type="video/mp4" />
                 </video>
               </div>
             ) : (
-              <div className={`story__slide ${styles.story__slide}`}>
+              <div
+                key={index + "ffgfd"}
+                className={`story__slide ${styles.story__slide}`}
+              >
                 <img
                   src={data}
                   alt="Slide 1"
