@@ -86,7 +86,7 @@ export default function Header() {
   };
 
   return (
-    <nav className="navbar">
+    <nav className={style.navbar}>
       {!showStorySlider && (
         <img
           className={style.img}
