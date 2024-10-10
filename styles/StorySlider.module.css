@@ -1,0 +1,55 @@
+.story__slider {
+  width: 450px;
+  height: 800px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.story__slide {
+  position: relative;
+}
+
+.story__slide video,
+.story__slide img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.story__pagination {
+  bottom: unset !important;
+  top: 8px !important;
+  display: flex;
+  padding: 0 4px;
+}
+
+.story__pagination .slick-dots li button::before {
+  color: rgba(247, 247, 245, 0.4);
+  font-size: 10px;
+}
+
+.story__pagination .slick-dots li.slick-active button::before {
+  color: #f7f7f5;
+}
+
+.story__prev,
+.story__next {
+  height: 100%;
+  width: 50%;
+  top: 0;
+  margin-top: 0;
+}
+
+.story__prev {
+  left: 0;
+}
+
+.story__next {
+  right: 0;
+}
+
+.story {
+  overflow: hidden;
+  width: 100vw;
+}
