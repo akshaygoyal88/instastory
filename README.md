@@ -4,6 +4,7 @@ A mobile-first application to display and navigate through stories, similar to I
 
 ## Deployment
 [Live Demo](https://instastory1-akshaygoyal88s-projects.vercel.app/)
+Kindly check in mobile view.
 
 ## Table of Contents
 - [Features](#features)
